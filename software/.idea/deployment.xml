@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="liujinchang@10.15.73.1:22 password" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="liujinchang@10.11.140.44:22 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/lujian/BayNN_VI/BayNN_VI" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="liujinchang@10.15.73.1:22 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/media/data/liujinchang/lujian/BayNN_VI/BayNN_VI" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
