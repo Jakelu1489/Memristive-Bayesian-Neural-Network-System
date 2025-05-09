@@ -1,0 +1,6 @@
+# compile vhdl design source files
+vhdl work  \
+"../../../../tdc_system_prj.srcs/tdc_control.vhd" \
+
+# Do not sort compile order
+nosort

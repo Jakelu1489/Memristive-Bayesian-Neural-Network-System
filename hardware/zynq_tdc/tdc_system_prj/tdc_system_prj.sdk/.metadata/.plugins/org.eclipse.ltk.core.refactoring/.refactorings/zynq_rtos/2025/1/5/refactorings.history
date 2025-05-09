@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;zynq_rtos/src/time_proc/calib_tab&apos; to &apos;calib_tab.c&apos;" description="Rename resource &apos;calib_tab&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/time_proc/calib_tab" name="calib_tab.c" stamp="1738228425428" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;zynq_rtos/src/time_proc/calib_tab.c&apos; to &apos;calibLookupTab.c&apos;" description="Rename resource &apos;calib_tab.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/time_proc/calib_tab.c" name="calibLookupTab.c" stamp="1738228460030" updateReferences="true"/>
+</session>

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog work  --include "../../../../tdc_system_prj.srcs/sources_1/bd/zynq_blk/ipshared/ec67/hdl" --include "../../../../tdc_system_prj.srcs/sources_1/bd/zynq_blk/ipshared/70cf/hdl" --include "../../../../tdc_system_prj.srcs/sources_1/bd/zynq_blk/ipshared/8713/hdl" --include "../../../../tdc_system_prj.srcs/sources_1/bd/zynq_blk/ipshared/979d/hdl/verilog" --include "../../../../tdc_system_prj.srcs/sources_1/bd/zynq_blk/ipshared/b2d0/hdl/verilog" --include "../../../../tdc_system_prj.srcs/sources_1/bd/zynq_blk/ipshared/85a3" --include "C:/Xilinx/Vivado/2018.3/data/xilinx_vip/include" \
+"../../../../tdc_system_prj.srcs/test_axis_fifo.v" \
+"../../../../tdc_system_prj.srcs/sim_1/new/test_fifo_sim.v" \
+
+# compile glbl module
+verilog work "glbl.v"
+
+# Do not sort compile order
+nosort

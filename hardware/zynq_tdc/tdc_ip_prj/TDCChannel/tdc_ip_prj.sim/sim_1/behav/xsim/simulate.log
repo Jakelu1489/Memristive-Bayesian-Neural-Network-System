@@ -1,0 +1,42 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+Failure: SIMULATION COMPLETED
+Time: 451 ns  Iteration: 0  Process: /delayLineTb/p_Sim  File: D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd
+$finish called at time : 451 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 96
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 60
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 80
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 56
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 57
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 58
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 80
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 56
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 57
+Stopped at time : 651 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 59
+Stopped at time : 655 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 68
+Stopped at time : 655 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 69
+Stopped at time : 655 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 107
+Stopped at time : 655 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 108
+Stopped at time : 655 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 109
+Stopped at time : 655 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd" Line 28
+Stopped at time : 655 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd" Line 29
+Stopped at time : 660 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 66
+Stopped at time : 660 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 67
+Stopped at time : 660 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 107
+Stopped at time : 660 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd" Line 28
+Stopped at time : 665 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 68
+Stopped at time : 665 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 69
+Stopped at time : 665 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 107
+Stopped at time : 665 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 108
+Stopped at time : 665 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 109
+Stopped at time : 665 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd" Line 28
+Stopped at time : 665 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd" Line 29
+Stopped at time : 670 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 66
+Stopped at time : 670 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 67
+Stopped at time : 670 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 107
+Stopped at time : 670 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd" Line 28
+Stopped at time : 675 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 68
+Stopped at time : 675 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.sim/dealyLineTb.vhd" Line 69
+Stopped at time : 675 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 107
+Stopped at time : 675 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 108
+Stopped at time : 675 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd" Line 109
+Stopped at time : 675 ns : File "D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd" Line 28

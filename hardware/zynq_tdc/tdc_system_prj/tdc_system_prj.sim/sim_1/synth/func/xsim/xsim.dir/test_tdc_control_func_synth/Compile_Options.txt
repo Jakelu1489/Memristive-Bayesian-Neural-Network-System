@@ -1,0 +1,1 @@
+-wto "f5f657a57b794ad992229bf0fc18a106" --incr --debug "typical" --relax --mt "2" -L "work" -L "xilinx_vip" -L "unisims_ver" -L "secureip" --snapshot "test_tdc_control_func_synth" "work.test_tdc_control" "work.glbl" -log "elaborate.log" 

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;zynq_rtos/src/params.h&apos; to &apos;configure.h&apos;" description="Rename resource &apos;params.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/params.h" name="configure.h" stamp="1716688273637" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;zynq_rtos/src/conf.h&apos; to &apos;config.h&apos;" description="Rename resource &apos;conf.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/conf.h" name="config.h" stamp="1716689783261" updateReferences="true"/>
+</session>

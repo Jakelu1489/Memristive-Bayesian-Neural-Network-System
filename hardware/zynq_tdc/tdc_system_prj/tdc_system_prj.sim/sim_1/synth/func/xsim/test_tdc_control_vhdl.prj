@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl work  \
+"../../../../../../tdc_ip_prj/TDCChannel/tdc_ip_prj.srcs/risingEdgeDetector.vhd" \
+"../../../../../../tdc_ip_prj/TDCChannel/tdc_ip_prj.srcs/delayLine.vhd" \
+
+# Do not sort compile order
+nosort

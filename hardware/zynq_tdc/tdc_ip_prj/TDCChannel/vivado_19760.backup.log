@@ -1,0 +1,94 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu May 23 23:20:41 2024
+# Process ID: 19760
+# Current directory: D:/zynq_tdc/tdc_ip_prj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9248 D:\zynq_tdc\tdc_ip_prj\tdc_ip_prj.xpr
+# Log file: D:/zynq_tdc/tdc_ip_prj/vivado.log
+# Journal file: D:/zynq_tdc/tdc_ip_prj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+update_compile_order -fileset sources_1
+launch_runs impl_1 -jobs 4
+[Thu May 23 23:21:28 2024] Launched impl_1...
+Run output will be captured here: D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.runs/impl_1/runme.log
+ipx::open_ipxact_file {D:\zynq_tdc\tdc_ip_prj\tdc_ip_prj.srcs\component.xml}
+WARNING: [IP_Flow 19-5226] Project source file 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/component.xml' ignored by IP packager.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/MyPkg.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/counter.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/TDCchannel.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/MyPkg.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/counter.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/TDCchannel.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z020clg484-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1110.254 ; gain = 0.414
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 1110.254 ; gain = 0.414
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1110.602 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1245.438 ; gain = 417.738
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+ipx::unload_core d:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/component.xml
+ipx::open_ipxact_file {D:\zynq_tdc\tdc_ip_prj\tdc_ip_prj.srcs\component.xml}
+WARNING: [IP_Flow 19-5226] Project source file 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/component.xml' ignored by IP packager.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/MyPkg.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/counter.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagesynthesis (Synthesis)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/TDCchannel.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/MyPkg.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/counter.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_anylanguagebehavioralsimulation (Simulation)': File 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/TDCchannel.vhd' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+ipx::merge_project_changes ports [ipx::current_core]
+WARNING: [IP_Flow 19-5226] Project source file 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/component.xml' ignored by IP packager.
+ipx::add_bus_parameter ASSOCIATED_BUSIF [ipx::get_bus_interfaces clk -of_objects [ipx::current_core]]
+ipx::add_bus_parameter ASSOCIATED_RESET [ipx::get_bus_interfaces clk -of_objects [ipx::current_core]]
+ipx::remove_bus_parameter ASSOCIATED_RESET [ipx::get_bus_interfaces clk -of_objects [ipx::current_core]]
+ipx::remove_bus_parameter ASSOCIATED_BUSIF [ipx::get_bus_interfaces clk -of_objects [ipx::current_core]]
+ipx::add_bus_parameter ASSOCIATED_BUSIF [ipx::get_bus_interfaces clk -of_objects [ipx::current_core]]
+set_property core_revision 6 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path d:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs'
+set_property core_revision 7 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path d:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs'
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu May 23 23:44:55 2024...

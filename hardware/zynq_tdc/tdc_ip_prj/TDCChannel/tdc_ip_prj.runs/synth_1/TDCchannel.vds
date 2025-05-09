@@ -1,0 +1,430 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu May 23 19:39:42 2024
+# Process ID: 6960
+# Current directory: D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.runs/synth_1
+# Command line: vivado.exe -log TDCchannel.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TDCchannel.tcl
+# Log file: D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.runs/synth_1/TDCchannel.vds
+# Journal file: D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source TDCchannel.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+Command: synth_design -top TDCchannel -part xc7z020clg484-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 17220 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 390.234 ; gain = 102.824
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'TDCchannel' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/TDCchannel.vhd:54]
+	Parameter NTaps bound to: 60 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'delayLine' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:37]
+	Parameter NTaps bound to: 60 - type: integer 
+INFO: [Synth 8-113] binding component instance 'firstCarry' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:83]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-113] binding component instance 'CARRY4_inst' to cell 'CARRY4' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:94]
+INFO: [Synth 8-638] synthesizing module 'risingEdgeDetector' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'risingEdgeDetector' (1#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/risingEdgeDetector.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'delayLine' (2#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/delayLine.vhd:37]
+INFO: [Synth 8-638] synthesizing module 'encoder' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:43]
+	Parameter NTaps bound to: 60 - type: integer 
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+	Parameter INIT bound to: 64'b0110100110010110100101100110100110010110011010010110100110010110 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst0' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:61]
+	Parameter INIT bound to: 64'b1000000100010111000101110111111000010111011111100111111011101000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst1' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:75]
+	Parameter INIT bound to: 64'b1111111011101000111010001000000011101000100000001000000000000000 
+INFO: [Synth 8-113] binding component instance 'LUT6_inst2' to cell 'LUT6' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:89]
+INFO: [Synth 8-638] synthesizing module 'adderTreeLegacy' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+	Parameter INPUTS bound to: 10 - type: integer 
+	Parameter BITS bound to: 3 - type: integer 
+	Parameter LEVEL bound to: 4 - type: integer 
+	Parameter Y_OUT_LEN bound to: 7 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'adderTreeLegacy__parameterized0' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+	Parameter INPUTS bound to: 5 - type: integer 
+	Parameter BITS bound to: 4 - type: integer 
+	Parameter LEVEL bound to: 3 - type: integer 
+	Parameter Y_OUT_LEN bound to: 7 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'adderTreeLegacy__parameterized1' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+	Parameter INPUTS bound to: 3 - type: integer 
+	Parameter BITS bound to: 5 - type: integer 
+	Parameter LEVEL bound to: 2 - type: integer 
+	Parameter Y_OUT_LEN bound to: 7 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'adderTreeLegacy__parameterized2' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+	Parameter INPUTS bound to: 2 - type: integer 
+	Parameter BITS bound to: 6 - type: integer 
+	Parameter LEVEL bound to: 1 - type: integer 
+	Parameter Y_OUT_LEN bound to: 7 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'adderTreeLegacy__parameterized2' (3#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'adderTreeLegacy__parameterized1' (3#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'adderTreeLegacy__parameterized0' (3#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'adderTreeLegacy' (3#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/adderTreeLegacy.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'encoder' (4#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/encoder.vhd:43]
+INFO: [Synth 8-638] synthesizing module 'counter' [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/counter.vhd:35]
+	Parameter BITS bound to: 24 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'counter' (5#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/counter.vhd:35]
+INFO: [Synth 8-256] done synthesizing module 'TDCchannel' (6#1) [D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.srcs/TDCchannel.vhd:54]
+WARNING: [Synth 8-3331] design TDCchannel has unconnected port timestamp[7]
+WARNING: [Synth 8-3331] design TDCchannel has unconnected port timestamp[6]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 446.492 ; gain = 159.082
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 446.492 ; gain = 159.082
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 446.492 ; gain = 159.082
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-2
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 446.492 ; gain = 159.082
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 5     
++---Registers : 
+	               60 Bit    Registers := 2     
+	               30 Bit    Registers := 1     
+	               20 Bit    Registers := 1     
+	               15 Bit    Registers := 1     
+	               12 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 7     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module risingEdgeDetector 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module delayLine 
+Detailed RTL Component Info : 
++---Registers : 
+	               60 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
+Module adderTreeLegacy__parameterized2 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
++---Registers : 
+	               12 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module adderTreeLegacy__parameterized1 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
++---Registers : 
+	               15 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module adderTreeLegacy__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 2     
++---Registers : 
+	               20 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module adderTreeLegacy 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 5     
++---Registers : 
+	               30 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+Module encoder 
+Detailed RTL Component Info : 
++---Registers : 
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design TDCchannel has port timestamp[7] driven by constant 0
+WARNING: [Synth 8-3917] design TDCchannel has port timestamp[6] driven by constant 0
+INFO: [Synth 8-3886] merging instance 'encoder/Adder_tree/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/x_reg[14]' (FD) to 'encoder/Adder_tree/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/x_reg[11]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\encoder/Adder_tree/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/x_reg[11] )
+INFO: [Synth 8-3886] merging instance 'encoder/Adder_tree/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/x_reg[11]' (FD) to 'encoder/Adder_tree/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/x_reg[10]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\encoder/Adder_tree/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/x_reg[10] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+--------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                                             | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+--------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|TDCchannel  | encoder/Adder_tree/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/RECURSE.NEXT_LEVEL/x_reg[9] | 3      | 4     | NO           | NO                 | YES               | 4      | 0       | 
+|TDCchannel  | encoder/validOut_reg                                                                 | 5      | 1     | NO           | NO                 | YES               | 1      | 0       | 
++------------+--------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |    23|
+|3     |LUT1   |     1|
+|4     |LUT2   |    14|
+|5     |LUT3   |     5|
+|6     |LUT4   |     8|
+|7     |LUT5   |     2|
+|8     |LUT6   |    46|
+|9     |SRL16E |     5|
+|10    |FDCE   |     1|
+|11    |FDRE   |   218|
+|12    |IBUF   |     3|
+|13    |OBUF   |    33|
++------+-------+------+
+
+Report Instance Areas: 
++------+-------------------------------+--------------------------------+------+
+|      |Instance                       |Module                          |Cells |
++------+-------------------------------+--------------------------------+------+
+|1     |top                            |                                |   361|
+|2     |  Delay_line                   |delayLine                       |   139|
+|3     |    RED                        |risingEdgeDetector              |     2|
+|4     |  counter                      |counter                         |    31|
+|5     |  encoder                      |encoder                         |   153|
+|6     |    Adder_tree                 |adderTreeLegacy                 |   116|
+|7     |      \RECURSE.NEXT_LEVEL      |adderTreeLegacy__parameterized0 |    66|
+|8     |        \RECURSE.NEXT_LEVEL    |adderTreeLegacy__parameterized1 |    38|
+|9     |          \RECURSE.NEXT_LEVEL  |adderTreeLegacy__parameterized2 |    17|
++------+-------------------------------+--------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+Synthesis Optimization Complete : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 601.879 ; gain = 314.469
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 708.703 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+79 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 708.703 ; gain = 434.418
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 708.703 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj.runs/synth_1/TDCchannel.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file TDCchannel_utilization_synth.rpt -pb TDCchannel_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu May 23 19:39:56 2024...

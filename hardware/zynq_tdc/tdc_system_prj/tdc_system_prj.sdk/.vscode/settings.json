@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "configure.h": "c",
+        "xil_printf.h": "c",
+        "ip.h": "c",
+        "task.h": "c",
+        "mem_cache.h": "c",
+        "xil_testmem.h": "c",
+        "xadapter.h": "c",
+        "network_mannger.h": "c",
+        "config.h": "c",
+        "caliblookuptab.h": "c",
+        "time_cal.h": "c"
+    },
+    "files.autoGuessEncoding": true,
+    "cmake.sourceDirectory": "D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_rtos/src/cjson",
+    "C_Cpp.default.compilerPath": ""
+}

@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri May 24 22:20:12 2024
+# Process ID: 5856
+# Current directory: D:/zynq_tdc/tdc_system_prj/tdc_system_prj.runs/zynq_blk_TDCchannel_1_0_synth_1
+# Command line: vivado.exe -log zynq_blk_TDCchannel_1_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_blk_TDCchannel_1_0.tcl
+# Log file: D:/zynq_tdc/tdc_system_prj/tdc_system_prj.runs/zynq_blk_TDCchannel_1_0_synth_1/zynq_blk_TDCchannel_1_0.vds
+# Journal file: D:/zynq_tdc/tdc_system_prj/tdc_system_prj.runs/zynq_blk_TDCchannel_1_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source zynq_blk_TDCchannel_1_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/tdc_ip_prj'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP zynq_blk_TDCchannel_1_0, cache-ID = 1e196a99ae252739.
+INFO: [Common 17-206] Exiting Vivado at Fri May 24 22:20:17 2024...

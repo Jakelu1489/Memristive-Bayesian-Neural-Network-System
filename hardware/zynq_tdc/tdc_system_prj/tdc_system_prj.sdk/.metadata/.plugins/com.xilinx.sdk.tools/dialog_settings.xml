@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="qspi-x4-single" key="zynq_blk_wrapper_hw_platform_0-flashType"/>
+	<item value="zynq_blk_wrapper_hw_platform_0" key="programflash.hwplatform"/>
+	<item value="" key="zynq_blk_wrapper_hw_platform_0-offSet"/>
+	<item value="D:\zynq_tdc\tdc_system_prj\tdc_system_prj.sdk\fsbl\Debug\fsbl.elf" key="zynq_blk_wrapper_hw_platform_0-fsblFile"/>
+	<item value="true" key="zynq_blk_wrapper_hw_platform_0-verifyFlash"/>
+	<item value="D:\zynq_tdc\tdc_system_prj\tdc_system_prj.sdk\BOOT.bin" key="zynq_blk_wrapper_hw_platform_0-imgFile"/>
+	<item value="Auto Detect" key="zynq_blk_wrapper_hw_platform_0-device"/>
+	<item value="Local" key="zynq_blk_wrapper_hw_platform_0-target"/>
+	<item value="true" key="zynq_blk_wrapper_hw_platform_0-blankCheck"/>
+</section>

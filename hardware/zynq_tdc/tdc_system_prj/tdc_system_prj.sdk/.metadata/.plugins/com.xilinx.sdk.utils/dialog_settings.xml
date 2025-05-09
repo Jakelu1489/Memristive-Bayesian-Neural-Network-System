@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="D:\zynq_tdc\tdc_system_prj\tdc_system_prj.runs\impl_1" key="bootgen_files_selection"/>
+	<item value="D:\zynq_tdc\tdc_system_prj\tdc_system_prj.sdk\fsbl\Debug" key="zynq_flash_files_selection"/>
+	<item value="D:\zynq_tdc\tdc_system_prj\tdc_system_prj.runs\impl_1" key="last_stored_selection"/>
+</section>

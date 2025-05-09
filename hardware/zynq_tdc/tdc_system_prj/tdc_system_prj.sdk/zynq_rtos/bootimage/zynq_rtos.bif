@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]D:\zynq_tdc\tdc_system_prj\tdc_system_prj.sdk\fsbl\Debug\fsbl.elf
+	D:\zynq_tdc\tdc_system_prj\tdc_system_prj.runs\impl_1\zynq_blk_wrapper.bit
+	D:\zynq_tdc\tdc_system_prj\tdc_system_prj.sdk\zynq_rtos\Debug\zynq_rtos.elf
+}

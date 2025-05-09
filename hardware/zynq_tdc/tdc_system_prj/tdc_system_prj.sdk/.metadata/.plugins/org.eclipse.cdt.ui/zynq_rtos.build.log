@@ -1,0 +1,29 @@
+12:01:52 **** Auto Build of configuration Debug for project zynq_rtos ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/time_proc/calibLookupTab.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/time_proc/calibLookupTab.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../zynq_rtos_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/time_proc/calibLookupTab.d" -MT"src/time_proc/calibLookupTab.o" -o "src/time_proc/calibLookupTab.o" "../src/time_proc/calibLookupTab.c"
+../src/time_proc/calibLookupTab.c: In function 'Init':
+../src/time_proc/calibLookupTab.c:14:5: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+     memset(this->start_ch, 0, sizeof(this->start_ch));
+     ^~~~~~
+../src/time_proc/calibLookupTab.c:14:5: warning: incompatible implicit declaration of built-in function 'memset'
+../src/time_proc/calibLookupTab.c:14:5: note: include '<string.h>' or provide a declaration of 'memset'
+'Finished building: ../src/time_proc/calibLookupTab.c'
+' '
+'Building target: zynq_rtos.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../zynq_rtos_bsp/ps7_cortexa9_0/lib -o "zynq_rtos.elf"  ./src/time_proc/calibLookupTab.o  ./src/tdc_dma/dma_thread.o ./src/tdc_dma/mem_cache.o  ./src/network/network_mannger.o  ./src/dac0501/dac0501.o  ./src/cjson/cJSON.o ./src/cjson/cJSON_Utils.o  ./src/echo.o ./src/iic_phyreset.o ./src/main.o ./src/status_control.o   -Wl,--start-group,-lxil,-lfreertos,-lgcc,-lc,--end-group -Wl,--start-group,-lxil,-llwip4,-lgcc,-lc,--end-group
+'Finished building target: zynq_rtos.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size zynq_rtos.elf  |tee "zynq_rtos.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 288112	   6612	5364032	5658756	 565884	zynq_rtos.elf
+'Finished building: zynq_rtos.elf.size'
+' '
+
+12:01:53 Build Finished (took 621ms)
+

@@ -1,0 +1,28 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Jan 30 16:50:27 2025
+# Process ID: 15940
+# Current directory: D:/zynq_tdc/tdc_system_prj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21096 D:\zynq_tdc\tdc_system_prj\tdc_system_prj.xpr
+# Log file: D:/zynq_tdc/tdc_system_prj/vivado.log
+# Journal file: D:/zynq_tdc/tdc_system_prj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zynq_tdc/tdc_system_prj/tdc_system_prj.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/tdc_ip_prj'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:19 . Memory (MB): peak = 778.555 ; gain = 158.238
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+file copy -force D:/zynq_tdc/tdc_system_prj/tdc_system_prj.runs/impl_1/zynq_blk_wrapper.sysdef D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Jan 30 17:17:53 2025...

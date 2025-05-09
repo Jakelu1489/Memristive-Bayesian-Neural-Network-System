@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# 
+# Start of session at: Sat May 25 15:41:21 2024
+# Process ID: 19448
+# Current directory: D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/webtalk/webtalk.log
+# Journal file: D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

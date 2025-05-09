@@ -1,0 +1,8 @@
+MyPkg.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/MyPkg.vhd,
+risingEdgeDetector.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/risingEdgeDetector.vhd,
+delayLine.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/delayLine.vhd,
+adderTreeLegacy.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/adderTreeLegacy.vhd,
+encoder.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/encoder.vhd,
+counter.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/counter.vhd,
+TDCchannel.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/TDCchannel.vhd,
+TDCchannel_0.vhd,vhdl,xil_defaultlib,../../../../tdc_system_prj.srcs/sources_1/ip/TDCchannel_0_2/sim/TDCchannel_0.vhd,

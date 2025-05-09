@@ -1,0 +1,1 @@
+-wto "f5f657a57b794ad992229bf0fc18a106" --incr --debug "typical" --relax --mt "2" -L "work" -L "xilinx_vip" -L "unisims_ver" -L "unimacro_ver" -L "secureip" -L "xpm" --snapshot "test_fifo_sim_behav" "work.test_fifo_sim" "work.glbl" -log "elaborate.log" 

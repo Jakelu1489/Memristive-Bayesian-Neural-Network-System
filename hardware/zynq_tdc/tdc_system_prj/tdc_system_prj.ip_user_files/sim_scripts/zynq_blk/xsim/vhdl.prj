@@ -1,0 +1,17 @@
+vhdl work  \
+"../../../bd/zynq_blk/ip/zynq_blk_axi_dma_0_0/sim/zynq_blk_axi_dma_0_0.vhd" \
+"../../../bd/zynq_blk/ip/zynq_blk_smartconnect_0_0/bd_0/ip/ip_1/sim/bd_39ac_psr_aclk_0.vhd" \
+"../../../bd/zynq_blk/ip/zynq_blk_rst_ps7_0_100M_1_0/sim/zynq_blk_rst_ps7_0_100M_1_0.vhd" \
+"../../../bd/zynq_blk/ipshared/34d3/MyPkg.vhd" \
+"../../../bd/zynq_blk/ipshared/34d3/risingEdgeDetector.vhd" \
+"../../../bd/zynq_blk/ipshared/34d3/delayLine.vhd" \
+"../../../bd/zynq_blk/ipshared/34d3/adderTreeLegacy.vhd" \
+"../../../bd/zynq_blk/ipshared/34d3/encoder.vhd" \
+"../../../bd/zynq_blk/ipshared/34d3/counter.vhd" \
+"../../../bd/zynq_blk/ipshared/34d3/TDCchannel.vhd" \
+"../../../bd/zynq_blk/ip/zynq_blk_TDCchannel_0_0/sim/zynq_blk_TDCchannel_0_0.vhd" \
+"../../../bd/zynq_blk/ip/zynq_blk_TDCchannel_1_0/sim/zynq_blk_TDCchannel_1_0.vhd" \
+"../../../bd/zynq_blk/ip/zynq_blk_axi_gpio_0_0/sim/zynq_blk_axi_gpio_0_0.vhd" \
+"../../../bd/zynq_blk/ip/zynq_blk_proc_rst_clk2_0/sim/zynq_blk_proc_rst_clk2_0.vhd" \
+
+nosort

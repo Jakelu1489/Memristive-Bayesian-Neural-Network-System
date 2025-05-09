@@ -1,0 +1,27 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri May 31 11:36:48 2024
+# Process ID: 25704
+# Current directory: D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19764 D:\zynq_tdc\tdc_ip_prj\tdc_ctl_fromps\edit_tdc_ctl_fromps_v1_0.xpr
+# Log file: D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps/vivado.log
+# Journal file: D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps/edit_tdc_ctl_fromps_v1_0.xpr
+INFO: [Project 1-313] Project file moved from 'D:/zynq_tdc/ip_repo' since last save.
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0_S00_AXI.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0.v:]
+Scanning sources...
+Finished scanning sources
+INFO: [filemgmt 56-1] IP Repository Path: Directory not found as 'D:/zynq_tdc/tdc_ip_prj/tdc_ip_prj'; using path 'D:/zynq_tdc/tdc_ip_prj' instead.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+WARNING: [IP_Flow 19-3685] Ignored loading user repository 'd:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps/tdc_ctl_fromps_1.0'. The path is contained within another repository.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/tdc_ip_prj'.
+WARNING: [IP_Flow 19-3656] If you move the project, the path for repository 'd:/zynq_tdc/tdc_ip_prj' may become invalid. A better location for the repository would be in a path adjacent to the project. (Current project location is 'd:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps'.)
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri May 31 11:37:49 2024...

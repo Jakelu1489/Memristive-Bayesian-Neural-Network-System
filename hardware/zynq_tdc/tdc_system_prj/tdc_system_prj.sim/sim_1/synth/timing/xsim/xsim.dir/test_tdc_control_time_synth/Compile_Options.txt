@@ -1,0 +1,1 @@
+-wto "f5f657a57b794ad992229bf0fc18a106" --incr --debug "typical" --relax --mt "2" --maxdelay -L "work" -L "xilinx_vip" -L "simprims_ver" -L "secureip" --snapshot "test_tdc_control_time_synth" -transport_int_delays -pulse_r "0" -pulse_int_r "0" -pulse_e "0" -pulse_int_e "0" "work.test_tdc_control" "work.glbl" -log "elaborate.log" 

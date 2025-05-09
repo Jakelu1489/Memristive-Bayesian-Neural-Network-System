@@ -1,0 +1,34 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Jul  9 11:31:28 2024
+# Process ID: 22636
+# Current directory: D:/zynq_tdc/tdc_system_prj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20296 D:\zynq_tdc\tdc_system_prj\tdc_system_prj.xpr
+# Log file: D:/zynq_tdc/tdc_system_prj/vivado.log
+# Journal file: D:/zynq_tdc/tdc_system_prj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zynq_tdc/tdc_system_prj/tdc_system_prj.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/tdc_ip_prj'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/xilinx/Vivado/2018.3/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 829.824 ; gain = 239.230
+update_compile_order -fileset sources_1
+launch_sdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_sdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+launch_sdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-393] Launching SDK...
+INFO: [Vivado 12-417] Running xsdk -workspace D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec D:/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf
+INFO: [Vivado 12-3157] SDK launch initiated. Please check console for any further messages.
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Jul  9 11:45:04 2024...

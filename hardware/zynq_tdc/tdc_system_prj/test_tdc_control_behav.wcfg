@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_tdc_control_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_tdc_control" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="61459856217fs"></ZoomStartTime>
+      <ZoomEndTime time="61459884938fs"></ZoomEndTime>
+      <Cursor1Time time="61459861000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="682"></NameColumnWidth>
+      <ValueColumnWidth column_width="221"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="28" />
+   <wave_markers>
+      <marker time="1287569000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/test_tdc_control/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/clk_50" type="logic">
+      <obj_property name="ElementShortName">clk_50</obj_property>
+      <obj_property name="ObjectShortName">clk_50</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/rst_n" type="logic">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/calibing_flag" type="logic">
+      <obj_property name="ElementShortName">calibing_flag</obj_property>
+      <obj_property name="ObjectShortName">calibing_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/calib_finished" type="logic">
+      <obj_property name="ElementShortName">calib_finished</obj_property>
+      <obj_property name="ObjectShortName">calib_finished</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/hit_source" type="logic">
+      <obj_property name="ElementShortName">hit_source</obj_property>
+      <obj_property name="ObjectShortName">hit_source</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/axis_tkeep" type="array">
+      <obj_property name="ElementShortName">axis_tkeep[7:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_tkeep[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/axis_tdata" type="array">
+      <obj_property name="ElementShortName">axis_tdata[63:0]</obj_property>
+      <obj_property name="ObjectShortName">axis_tdata[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/stop_sig" type="logic">
+      <obj_property name="ElementShortName">stop_sig</obj_property>
+      <obj_property name="ObjectShortName">stop_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/start_sig" type="logic">
+      <obj_property name="ElementShortName">start_sig</obj_property>
+      <obj_property name="ObjectShortName">start_sig</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/start_sig_vaild" type="logic">
+      <obj_property name="ElementShortName">start_sig_vaild</obj_property>
+      <obj_property name="ObjectShortName">start_sig_vaild</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/stop_sig_vaild" type="logic">
+      <obj_property name="ElementShortName">stop_sig_vaild</obj_property>
+      <obj_property name="ObjectShortName">stop_sig_vaild</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/start_vaild_1" type="logic">
+      <obj_property name="ElementShortName">start_vaild_1</obj_property>
+      <obj_property name="ObjectShortName">start_vaild_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/stop_sig_vaild_1" type="logic">
+      <obj_property name="ElementShortName">stop_sig_vaild_1</obj_property>
+      <obj_property name="ObjectShortName">stop_sig_vaild_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/ValidOutStart" type="logic">
+      <obj_property name="ElementShortName">ValidOutStart</obj_property>
+      <obj_property name="ObjectShortName">ValidOutStart</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/ValidOutStop" type="logic">
+      <obj_property name="ElementShortName">ValidOutStop</obj_property>
+      <obj_property name="ObjectShortName">ValidOutStop</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/timeout_cnt" type="array">
+      <obj_property name="ElementShortName">timeout_cnt[2:0]</obj_property>
+      <obj_property name="ObjectShortName">timeout_cnt[2:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/axis_tready" type="logic">
+      <obj_property name="ElementShortName">axis_tready</obj_property>
+      <obj_property name="ObjectShortName">axis_tready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/state" type="other">
+      <obj_property name="ElementShortName">state</obj_property>
+      <obj_property name="ObjectShortName">state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/calibing_flag" type="logic">
+      <obj_property name="ElementShortName">calibing_flag</obj_property>
+      <obj_property name="ObjectShortName">calibing_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/axis_tvalid" type="logic">
+      <obj_property name="ElementShortName">axis_tvalid</obj_property>
+      <obj_property name="ObjectShortName">axis_tvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/calib_finished" type="logic">
+      <obj_property name="ElementShortName">calib_finished</obj_property>
+      <obj_property name="ObjectShortName">calib_finished</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/axis_tlast" type="logic">
+      <obj_property name="ElementShortName">axis_tlast</obj_property>
+      <obj_property name="ObjectShortName">axis_tlast</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/ready" type="logic">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/run" type="logic">
+      <obj_property name="ElementShortName">run</obj_property>
+      <obj_property name="ObjectShortName">run</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/DLenable" type="logic">
+      <obj_property name="ElementShortName">DLenable</obj_property>
+      <obj_property name="ObjectShortName">DLenable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/flag_calib_init" type="logic">
+      <obj_property name="ElementShortName">flag_calib_init</obj_property>
+      <obj_property name="ObjectShortName">flag_calib_init</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_tdc_control/inst/tx_num_meas" type="array">
+      <obj_property name="ElementShortName">tx_num_meas[9:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_num_meas[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

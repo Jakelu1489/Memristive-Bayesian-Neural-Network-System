@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../tdc_ip_prj.srcs/risingEdgeDetector.vhd" \
+"../../../../tdc_ip_prj.srcs/delayLine.vhd" \
+"../../../dealyLineTb.vhd" \
+
+# Do not sort compile order
+nosort

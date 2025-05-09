@@ -1,0 +1,60 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat May 25 09:19:06 2024
+# Process ID: 19920
+# Current directory: D:/zynq_tdc/ip_repo
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22044 D:\zynq_tdc\ip_repo\edit_tdc_ctl_fromps_v1_0.xpr
+# Log file: D:/zynq_tdc/ip_repo/vivado.log
+# Journal file: D:/zynq_tdc/ip_repo\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zynq_tdc/ip_repo/edit_tdc_ctl_fromps_v1_0.xpr
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [D:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0_S00_AXI.v:]
+WARNING: [filemgmt 56-99] Vivado Synthesis ignores library specification for Verilog or SystemVerilog files. [D:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0.v:]
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/zynq_tdc/tdc_ip_prj'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+ipx::open_ipxact_file D:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/component.xml
+WARNING: [IP_Flow 19-5226] Project source file 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/component.xml' ignored by IP packager.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': File 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0_S00_AXI.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_verilogsynthesis (Verilog Synthesis)': File 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': File 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0_S00_AXI.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+WARNING: [IP_Flow 19-3898] File Group 'xilinx_verilogbehavioralsimulation (Verilog Simulation)': File 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/hdl/tdc_ctl_fromps_v1_0.v' is not found in the project sources. It will be removed from the packaged IP when the sources are merged. If still required, please add this file to the project and re-package.
+set_property core_revision 2 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path d:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0'
+ipx::merge_project_changes ports [ipx::current_core]
+WARNING: [IP_Flow 19-5226] Project source file 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/component.xml' ignored by IP packager.
+INFO: [IP_Flow 19-3166] Bus Interface 'S00_AXI': References existing memory map 'S00_AXI'.
+set_property core_revision 3 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path d:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0'
+ipx::merge_project_changes ports [ipx::current_core]
+WARNING: [IP_Flow 19-5226] Project source file 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0/component.xml' ignored by IP packager.
+INFO: [IP_Flow 19-3166] Bus Interface 'S00_AXI': References existing memory map 'S00_AXI'.
+set_property core_revision 4 [ipx::current_core]
+ipx::create_xgui_files [ipx::current_core]
+ipx::update_checksums [ipx::current_core]
+ipx::save_core [ipx::current_core]
+update_ip_catalog -rebuild -repo_path d:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0
+INFO: [IP_Flow 19-725] Reloaded user IP repository 'd:/zynq_tdc/ip_repo/tdc_ctl_fromps_1.0'
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat May 25 09:29:25 2024...

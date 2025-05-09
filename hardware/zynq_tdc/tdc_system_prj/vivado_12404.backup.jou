@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Feb  6 22:16:43 2025
+# Process ID: 12404
+# Current directory: C:/Users/alvinpc/Desktop/zynq_tdc/tdc_system_prj
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent34660 C:\Users\alvinpc\Desktop\zynq_tdc\tdc_system_prj\tdc_system_prj.xpr
+# Log file: C:/Users/alvinpc/Desktop/zynq_tdc/tdc_system_prj/vivado.log
+# Journal file: C:/Users/alvinpc/Desktop/zynq_tdc/tdc_system_prj\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/alvinpc/Desktop/zynq_tdc/tdc_system_prj/tdc_system_prj.xpr
+update_compile_order -fileset sources_1
+launch_sdk -workspace C:/Users/alvinpc/Desktop/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk -hwspec C:/Users/alvinpc/Desktop/zynq_tdc/tdc_system_prj/tdc_system_prj.sdk/zynq_blk_wrapper.hdf

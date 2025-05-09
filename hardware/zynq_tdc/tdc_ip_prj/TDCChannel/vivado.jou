@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri May 31 11:38:04 2024
+# Process ID: 16760
+# Current directory: D:/zynq_tdc/tdc_ip_prj/TDCChannel
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15276 D:\zynq_tdc\tdc_ip_prj\TDCChannel\tdc_ip_prj.xpr
+# Log file: D:/zynq_tdc/tdc_ip_prj/TDCChannel/vivado.log
+# Journal file: D:/zynq_tdc/tdc_ip_prj/TDCChannel\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zynq_tdc/tdc_ip_prj/TDCChannel/tdc_ip_prj.xpr
+update_compile_order -fileset sources_1

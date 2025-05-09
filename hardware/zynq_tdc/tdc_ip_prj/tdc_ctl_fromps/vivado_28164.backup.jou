@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Fri May 31 21:45:03 2024
+# Process ID: 28164
+# Current directory: D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent25692 D:\zynq_tdc\tdc_ip_prj\tdc_ctl_fromps\edit_tdc_ctl_fromps_v1_0.xpr
+# Log file: D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps/vivado.log
+# Journal file: D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/zynq_tdc/tdc_ip_prj/tdc_ctl_fromps/edit_tdc_ctl_fromps_v1_0.xpr
+update_compile_order -fileset sources_1
