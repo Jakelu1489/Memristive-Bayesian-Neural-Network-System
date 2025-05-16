@@ -6,8 +6,7 @@ def noise(x, eps=0.3, norm=np.inf, clip_min=None, clip_max=None):
     if norm != np.inf:
         raise NotImplementedError(norm)
 
-    eta = torch.FloatTensor(*x.shape).to(x.device).uniform_(-eps, eps) 
-    
+    eta = torch.FloatTensor(*x.shape).to(x.device).normal_(0, eps)
     adv_x = x + eta
 
     if clip_min is not None or clip_max is not None:

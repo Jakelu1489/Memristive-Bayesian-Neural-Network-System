@@ -24,7 +24,7 @@ from tqdm import tqdm
 
 import quan
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
@@ -39,13 +39,13 @@ def init_seeds(seed):
 def get_model(net_type, inputs, outputs, priors, layer_type, activation_type, clt, clt_num, model_path):
     if net_type == "lenet":
         model = BBBLeNet(outputs, inputs, priors, layer_type, activation_type, clt, clt_num)
-        return model.state_dict(model_path)
+        return model.load_state_dict(torch.load(model_path))
     elif net_type == "alexnet":
         model = BBBAlexNet(outputs, inputs, priors, layer_type, activation_type, clt, clt_num)
-        return model.state_dict(model_path)
+        return model.load_state_dict(torch.load(model_path))
     elif net_type == "3conv3fc":
         model = BBB3Conv3FC(outputs, inputs, priors, layer_type, activation_type, clt, clt_num)
-        return model.state_dict(model_path)
+        return model.load_state_dict(torch.load(model_path))
     elif net_type == "test":
         model = ModelTest(outputs, inputs, priors, layer_type, activation_type, clt, clt_num)
         model = model.load_state_dict(torch.load(model_path))
@@ -79,19 +79,16 @@ def train_model(net, optimizer, criterion, train_loader, num_ens=1, beta_type=0.
             kl_list.append(kl.cpu().detach().numpy())
         else:
             kl_list.append(kl)
-        # kl_list.append(kl)
+
         log_outputs = utils.logmeanexp(outputs, dim=2)
 
         beta = metric.get_beta(i - 1, len(train_loader), beta_type, epoch, num_epochs)
         loss = criterion(log_outputs, labels, kl, beta)
         loss.backward()
-        # for name, params in net.named_parameters():
-        #     print("--> name:", name, "--> grad_requirs: ", params.requires_grad, "--> grad value: ", params.grad)
         optimizer.step()
 
         accs.append(metric.acc(log_outputs.data, labels))
-        training_loss += loss.cpu().detach().numpy()  # * inputs.size(0)
-
+        training_loss += loss.cpu().detach().numpy() 
         train_loader.desc = f'Epoch: {epoch:3d}'
 
     return training_loss / len(train_loader), np.mean(accs), np.mean(kl_list)
@@ -102,7 +99,6 @@ def validate_model(net, criterion, valid_loader, num_ens=1, beta_type=0.1, epoch
     valid_loss = 0.0
     accs = []
 
-    # valid_loader = tqdm(valid_loader)
     for i, (inputs, labels) in enumerate(valid_loader):
         inputs, labels = inputs.to(device), labels.to(device)
         outputs = torch.zeros(inputs.shape[0], net.num_classes, num_ens).to(device)
@@ -116,7 +112,7 @@ def validate_model(net, criterion, valid_loader, num_ens=1, beta_type=0.1, epoch
         log_outputs = utils.logmeanexp(outputs, dim=2)
 
         beta = metric.get_beta(i - 1, len(valid_loader), beta_type, epoch, num_epochs)
-        valid_loss += criterion(log_outputs, labels, kl, beta).item()  # * inputs.size(0)
+        valid_loss += criterion(log_outputs, labels, kl, beta).item()  
         accs.append(metric.acc(log_outputs, labels))
 
     return valid_loss / len(valid_loader), np.mean(accs)
@@ -173,38 +169,19 @@ def run(dataset, net_type, seeds):
     else:
         model_path = f"checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}.pt"
 
-    model_path = f"quan_checkpoints/MNIST/bayesian/quan_model_test_lrt_relu_clt_10_noise_2.pt"
-
-    if net_type == "lenet":
-        model = BBBLeNet(outputs, inputs, priors, layer_type, activation_type, use_clt, clt_num)
-        model.load_state_dict(torch.load(model_path))
-    elif net_type == "alexnet":
-        model = BBBAlexNet(outputs, inputs, priors, layer_type, activation_type, use_clt, clt_num)
-        model.load_state_dict(torch.load(model_path))
-    elif net_type == "3conv3fc":
-        model = BBB3Conv3FC(outputs, inputs, priors, layer_type, activation_type, use_clt, clt_num)
-        model.load_state_dict(torch.load(model_path))
-    elif net_type == "test":
-        model = ModelTest(outputs, inputs, priors, layer_type, activation_type, use_clt, clt_num)
-        modules_to_replace = quan.find_modules_to_quantize(model, quan_scheduler)
-        model = quan.replace_module_by_names(model, modules_to_replace)
-        model.load_state_dict(torch.load(model_path, map_location=torch.device(device)))
-    else:
-        raise ValueError("Other Network do not supported")
-    # model.to(device)
+    model = get_model(net_type, inputs, outputs, priors, layer_type, activation_type, use_clt, clt_num, model_path)
 
     ckpt_dir = f'quan_checkpoints/{dataset}/bayesian'
     ckpt_name = f'quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}.pt'
-    ckpt_name_clt = f"quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}_clt_{10}_noise_3.pt"
+    ckpt_name_clt = f"quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}_clt_{10}_noise.pt"
 
     if not os.path.exists(ckpt_dir):
         os.makedirs(ckpt_dir, exist_ok=True)
 
-    # modules_to_replace = quan.find_modules_to_quantize(model, quan_scheduler)
-    # model = quan.replace_module_by_names(model, modules_to_replace)
+    modules_to_replace = quan.find_modules_to_quantize(model, quan_scheduler)
+    model = quan.replace_module_by_names(model, modules_to_replace)
     model.to(device)
     criterion = metric.ELBO(len(train_set)).to(device)
-    print(model)
 
     optimizer = Adam(model.parameters(), lr=lr_start)
     lr_sched = lr_scheduler.ReduceLROnPlateau(optimizer, patience=8, verbose=True)
@@ -258,16 +235,16 @@ def run(dataset, net_type, seeds):
     if use_clt:
         np.savetxt(
             f'quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}_clt_{10}'
-            f'train_loss_noise_3.csv', t_loss, delimiter=",")
+            f'train_loss_noise.csv', t_loss, delimiter=",")
         np.savetxt(
             f'quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}_clt_{10}'
-            f'train_acc_noise_3.csv', t_acc, delimiter=",")
+            f'train_acc_noise.csv', t_acc, delimiter=",")
         np.savetxt(
             f'quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}_clt_{10}'
-            f'valid_loss_noise_3.csv', v_loss, delimiter=",")
+            f'valid_loss_noise.csv', v_loss, delimiter=",")
         np.savetxt(
             f'quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}_clt_{10}'
-            f'valid_acc_noise_3.csv', v_acc, delimiter=",")
+            f'valid_acc_noise.csv', v_acc, delimiter=",")
     else:
         np.savetxt(
             f'quan_checkpoints/{dataset}/bayesian/quan_model_{net_type}_{layer_type}_{activation_type}_train_loss.csv',

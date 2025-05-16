@@ -46,7 +46,6 @@ quan_scheduler = {
 
 
 n_epochs = 100
-# lr_start = 0.00005
 lr_start = 0.0001
 num_workers = 4
 valid_size = 0.2

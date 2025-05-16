@@ -111,12 +111,11 @@ class CustomDataset(Dataset):
         adv_data = []
         adv_label = []
 
-        self.adv_data_path = self.dataset_path + "/" + f"nbeps_{eps}_adv_data.json"
-        self.adv_label_path = self.dataset_path + "/" + f"nbeps_{eps}_adv_label.json"
+        self.adv_data_path = self.dataset_path + "/" + f"eps_{eps}_adv_data.json"
+        self.adv_label_path = self.dataset_path + "/" + f"eps_{eps}_adv_label.json"
 
         if self.att_type == "fgsm":
             for i, (data, label) in enumerate(data_loader):
-                print(label)
                 data, label = data.to(device), label.to(device)
                 adv_x = fast_gradient_method(model, data, eps=eps, norm=np.inf, num_ens=num_ens, criterion=criterion,
                                              y=label, clip_max=1, clip_min=0)
@@ -142,14 +141,11 @@ class CustomDataset(Dataset):
         elif self.att_type == "pgd":
             for i, (data, label) in enumerate(data_loader):
                 data, label = data.to(device), label.to(device)
-                print(label)
                 adv_x = projected_gradient_descent(model, data, eps=eps, norm=np.inf, nb_iter=eps, num_ens=num_ens,
                                                    criterion=criterion, eps_iter=eps, y=label, clip_max=1,
                                                    clip_min=0, rand_init=True)
                 adv_data.append(adv_x.tolist())
                 adv_label.append(label.tolist())
-                print(adv_label)
-                print("\n")
             with open(self.adv_data_path, "w") as file_obj:
                 json.dump(adv_data, file_obj)
             with open(self.adv_label_path, "w") as file_obj:

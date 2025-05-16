@@ -33,7 +33,7 @@ from models.BayesianModel.BayAlexNet import BBBAlexNet
 from models.BayesianModel.BayLeNet import BBBLeNet
 from models.BayesianModel.BayCNN import ModelTest
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '2'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def init_seeds(seed):
@@ -87,7 +87,7 @@ def train_model(net, optimizer, criterion, train_loader, num_ens=1, beta_type=0.
         optimizer.step()
 
         accs.append(metric.acc(log_outputs.data, labels))
-        training_loss += loss.cpu().detach().numpy()  # * inputs.size(0)
+        training_loss += loss.cpu().detach().numpy()
 
         train_loader.desc = f'Epoch: {epoch:3d}'
 
@@ -112,7 +112,7 @@ def validate_model(net, criterion, valid_loader, num_ens=1, beta_type=0.1, epoch
         log_outputs = utils.logmeanexp(outputs, dim=2)
 
         beta = metric.get_beta(i - 1, len(valid_loader), beta_type, epoch, num_epochs)
-        valid_loss += criterion(log_outputs, labels, kl, beta).item()  # * inputs.size(0)
+        valid_loss += criterion(log_outputs, labels, kl, beta).item() 
         accs.append(metric.acc(log_outputs, labels))
 
     return valid_loss / len(valid_loader), np.mean(accs)
@@ -168,7 +168,6 @@ def run(dataset, net_type, seeds):
     ckpt_dir = f'checkpoints/{dataset}/bayesian'
     ckpt_name = f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}.pt'
     ckpt_name_clt = f"checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}.pt"
-    # net.load_state_dict(torch.load(r"checkpoints/MNIST/bayesian/model_test_lrt_relu_clt_10", map_location="cpu"))
 
     if not os.path.exists(ckpt_dir):
         os.makedirs(ckpt_dir, exist_ok=True)

@@ -17,7 +17,8 @@ def fast_gradient_method(
         clip_min=0,
         y=None,
         targeted=False,
-        sanity_checks=True
+        sanity_checks=True,
+        use_bay=True
 ):
     if norm not in [np.inf, 1, 2]:
         raise ValueError("Norm order must be either np.inf, 1, or 2, got {} instead.".format(norm))
@@ -45,24 +46,32 @@ def fast_gradient_method(
 
     if y is None:
         _, y = torch.max(model_fn(x), 1)
-    loss = criterion(model_fn(x), y)  # for non-BayNN
-    # kl = 0.0
-    # outputs = torch.zeros(x.shape[0], model_fn.num_classes, num_ens).to(torch.device(x.device))  # 10 classes
 
-    # for j in range(num_ens):
-    #     net_out, _kl = model_fn(x)
-    #     kl += _kl
-    #     outputs[:, :, j] = F.log_softmax(net_out, dim=1)
+    if use_bay:
+        kl = 0.0
+        outputs = torch.zeros(x.shape[0], model_fn.num_classes, num_ens).to(torch.device(x.device)) 
 
-    # kl /= num_ens
-    # log_outputs = utils.logmeanexp(outputs, dim=2)
-    # loss = criterion(log_outputs, y, kl, 0.1)
+        for j in range(num_ens):
+            net_out, _kl = model_fn(x)
+            kl += _kl
+            outputs[:, :, j] = F.log_softmax(net_out, dim=1)
+        kl /= num_ens
+        log_outputs = utils.logmeanexp(outputs, dim=2)
+        loss = criterion(log_outputs, y, kl, 0.1)
+    else:
+        loss = criterion(model_fn(x), y)
+
     if targeted:
         loss = -loss
+
     model_fn.zero_grad()
+
     loss.backward()
+
     optimal_perturbation = optimize_linear(x.grad.data, eps, norm)
+
     adv_x = x + optimal_perturbation
+
     if (clip_min is not None) or (clip_max is not None):
         if clip_min is None or clip_max is None:
             raise ValueError("One of clip_min and clip_max is None but we don't currently support one-sided clipping")

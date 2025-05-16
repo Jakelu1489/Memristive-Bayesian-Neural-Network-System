@@ -36,7 +36,6 @@ from models.BayesianModel.BayCNN_Pcam import BayCNN_Pcam
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print(device)
 
 def init_seeds(seed):
     random.seed(seed)
@@ -91,7 +90,7 @@ def train_model(net, optimizer, criterion, train_loader, num_ens=10, beta_type=0
         optimizer.step()
 
         accs.append(metric.acc(log_outputs.data, labels))
-        training_loss += loss.cpu().detach().numpy()  # * inputs.size(0)
+        training_loss += loss.cpu().detach().numpy() 
 
         train_loader.desc = f'Epoch: {epoch:3d}'
 
@@ -183,8 +182,7 @@ def run(dataset, net_type, seeds):
 
     ckpt_dir = f'checkpoints/{dataset}/bayesian'
     ckpt_name = f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}.pt'
-    ckpt_name_clt = f"checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_1.pt"
-    net.load_state_dict(torch.load(r"checkpoints/PCAM/bayesian/model_PCAM_lrt_relu_clt_10_1.pt", map_location="cpu"))
+    ckpt_name_clt = f"checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}.pt"
 
     if not os.path.exists(ckpt_dir):
         os.makedirs(ckpt_dir, exist_ok=True)
@@ -205,58 +203,58 @@ def run(dataset, net_type, seeds):
     v_loss = np.array([])
     v_acc = np.array([])
 
-    # for epoch in range(n_epochs):
-    #     train_loss, train_acc, train_kl = train_model(net, optimizer, criterion, train_loader, num_ens=train_ens,
-    #                                                   beta_type=beta_type, epoch=epoch, num_epochs=n_epochs)
-    #     valid_loss, valid_acc = validate_model(net, criterion, valid_loader, num_ens=valid_ens, beta_type=beta_type,
-    #                                            epoch=epoch, num_epochs=n_epochs)
-    #     lr_sched.step(valid_loss)
-    #
-    #     if use_clt:
-    #         print("Using central limitation theorem to approximate the Gaussian distribution!")
-    #         print("The sample number is {:.4f}".format(clt_num))
-    #
-    #     print("Epoch: {} \tTraining Loss: {:.4f} \t Training Accuracy: {:.4f} \tValidation Loss: {:.4f} "
-    #           "\tValidate Accuracy: {:.4f} \ttrain_kl_div: {:.4f}\n".format(epoch, train_loss, train_acc,
-    #                                                                         valid_loss,
-    #                                                                         valid_acc, train_kl))
-    #
-    #     if valid_loss <= valid_loss_max:
-    #         best_epoch = epoch
-    #         print("Validation loss decreased ({:.6f} --> {:.6f}).    Saving model .... \n".format(valid_loss_max,
-    #                                                                                               valid_loss))
-    #         if use_clt:
-    #             print("The best model trained at epoch {}\n".format(epoch))
-    #             torch.save(net.state_dict(), ckpt_name_clt)
-    #             valid_loss_max = valid_loss
-    #         else:
-    #             print("The best model trained at epoch {}\n".format(epoch))
-    #             torch.save(net.state_dict(), ckpt_name)
-    #             valid_loss_max = valid_loss
-    #
-    #     t_acc = np.append(t_acc, train_acc)
-    #     t_loss = np.append(t_loss, train_loss)
-    #     v_loss = np.append(v_loss, valid_loss)
-    #     v_acc = np.append(v_acc, valid_acc)
-    # t_acc = np.append(t_acc, best_epoch)
-    # if use_clt:
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
-    #                f'train_loss.csv', t_loss, delimiter=",")
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
-    #                f'train_acc.csv', t_acc, delimiter=",")
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
-    #                f'valid_loss.csv', v_loss, delimiter=",")
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
-    #                f'valid_acc.csv', v_acc, delimiter=",")
-    # else:
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_train_loss.csv',
-    #                t_loss, delimiter=",")
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_train_acc.csv',
-    #                t_acc, delimiter=",")
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_valid_loss.csv',
-    #                v_loss, delimiter=",")
-    #     np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_valid_acc.csv',
-    #                v_acc, delimiter=",")
+    for epoch in range(n_epochs):
+        train_loss, train_acc, train_kl = train_model(net, optimizer, criterion, train_loader, num_ens=train_ens,
+                                                      beta_type=beta_type, epoch=epoch, num_epochs=n_epochs)
+        valid_loss, valid_acc = validate_model(net, criterion, valid_loader, num_ens=valid_ens, beta_type=beta_type,
+                                               epoch=epoch, num_epochs=n_epochs)
+        lr_sched.step(valid_loss)
+    
+        if use_clt:
+            print("Using central limitation theorem to approximate the Gaussian distribution!")
+            print("The sample number is {:.4f}".format(clt_num))
+    
+        print("Epoch: {} \tTraining Loss: {:.4f} \t Training Accuracy: {:.4f} \tValidation Loss: {:.4f} "
+              "\tValidate Accuracy: {:.4f} \ttrain_kl_div: {:.4f}\n".format(epoch, train_loss, train_acc,
+                                                                            valid_loss,
+                                                                            valid_acc, train_kl))
+    
+        if valid_loss <= valid_loss_max:
+            best_epoch = epoch
+            print("Validation loss decreased ({:.6f} --> {:.6f}).    Saving model .... \n".format(valid_loss_max,
+                                                                                                  valid_loss))
+            if use_clt:
+                print("The best model trained at epoch {}\n".format(epoch))
+                torch.save(net.state_dict(), ckpt_name_clt)
+                valid_loss_max = valid_loss
+            else:
+                print("The best model trained at epoch {}\n".format(epoch))
+                torch.save(net.state_dict(), ckpt_name)
+                valid_loss_max = valid_loss
+    
+        t_acc = np.append(t_acc, train_acc)
+        t_loss = np.append(t_loss, train_loss)
+        v_loss = np.append(v_loss, valid_loss)
+        v_acc = np.append(v_acc, valid_acc)
+    t_acc = np.append(t_acc, best_epoch)
+    if use_clt:
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
+                   f'train_loss.csv', t_loss, delimiter=",")
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
+                   f'train_acc.csv', t_acc, delimiter=",")
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
+                   f'valid_loss.csv', v_loss, delimiter=",")
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_clt_{clt_num}_'
+                   f'valid_acc.csv', v_acc, delimiter=",")
+    else:
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_train_loss.csv',
+                   t_loss, delimiter=",")
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_train_acc.csv',
+                   t_acc, delimiter=",")
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_valid_loss.csv',
+                   v_loss, delimiter=",")
+        np.savetxt(f'checkpoints/{dataset}/bayesian/model_{net_type}_{layer_type}_{activation_type}_valid_acc.csv',
+                   v_acc, delimiter=",")
 
     print("testing...")
     test_acc = model_test(net, criterion, test_loader, num_ens=test_ens, beta_type=beta_type, epoch=None,
@@ -268,8 +266,7 @@ def run(dataset, net_type, seeds):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="PyTorch Bayesian Model Training")
     parser.add_argument("--net_type", default="PCAM", type=str, help="model")
-    parser.add_argument("--dataset", default="PCAM", type=str, help="dataset=[MNIST/FashionMNIST/CIFAR10"
-                                                                       "/CIFAR100/PCAM]")
+    parser.add_argument("--dataset", default="PCAM", type=str, help="dataset=[PCAM]")
     parser.add_argument("--seeds", default="time", type=str, help="random seeds")
     args = parser.parse_args()
 

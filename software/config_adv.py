@@ -52,8 +52,12 @@ use_BayNN = True
 test_ens = 10
 use_clt = True
 clt_num = 10
+
+# for mnist
 # att_type = ["noise", "gaussian", "fgsm", "pgd", "bim"]
-att_type = ["pgd"]
 # eps = [0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3]
+
+# for PCAM
+att_type = ["pgd"]
 eps = [1/255, 2/255, 4/255, 8/255, 16/255]
 nb_iter = 10

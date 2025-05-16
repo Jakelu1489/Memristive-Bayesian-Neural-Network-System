@@ -76,15 +76,6 @@ def projected_gradient_descent(
     eta = clip_eta(eta, norm, eps)
     adv_x = x + eta
 
-    mean = torch.tensor([0.491, 0.482, 0.446], device=x.device).view(1, 3, 1, 1)
-    std = torch.tensor([0.247, 0.243, 0.261], device=x.device).view(1, 3, 1, 1)
-
-    if clip_min is not None or clip_max is not None:
-        if x.max() != 1 and x.min() != 0:
-            clip_max = (clip_max - mean) / std
-            clip_min = (clip_min - mean) / std
-        adv_x = torch.clamp(adv_x, clip_min, clip_max)
-
     if y is None:
         _, y = torch.max(model_fn(x), 1)
 
@@ -115,6 +106,6 @@ def projected_gradient_descent(
     if norm == np.inf and clip_min is not None:
         asserts.append((eps + clip_min <= clip_max).cpu())
 
-    # if sanity_checks:
-    #     assert np.all(asserts)
+    if sanity_checks:
+        assert np.all(asserts)
     return adv_x
