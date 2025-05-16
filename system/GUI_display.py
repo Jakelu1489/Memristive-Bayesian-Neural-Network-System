@@ -26,12 +26,12 @@ class MainFrame(wx.Frame):
         self.Center()
         self.image_id = None
         self.ens = 10
-        self.data = np.load("data.npy")
-        self.label = np.load("label.npy")
+        self.data = np.load("data.npy") # data
+        self.label = np.load("label.npy") # label
         self.Da_to_test = np.array([])
         self.Label_to_test = None
 
-        self.process = Process('quan_model_test_lrt_relu_clt_10_noise_2.pt')
+        self.process = Process('quan_model_test_lrt_relu_clt_10_noise_2.pt') # cim array process
 
     def _init_ui(self):
         self.panel = wx.Panel(self, -1)
@@ -41,7 +41,7 @@ class MainFrame(wx.Frame):
 
         cpy = """
                     \nVersion and copyright authorized by Lu Jian.\n
-                    \n     E-mail: lujian@zhejianglab.com         \n"""
+                    \n     E-mail: jakelujian@163.com         \n"""
         cpy_txt = wx.StaticText(self.panel, -1, cpy)
         cpy_txt.SetFont(self.cpy_font)
         cpy_txt.SetForegroundColour("blue")
@@ -275,24 +275,6 @@ class MainFrame(wx.Frame):
         self.log_text_ctrl.AppendText("RUNNING...\n \n")
 
         start_time = time.time()
-
-        # random_data = []
-        # for i in range(self.ens):
-        #     # 1. 产生足够的随机数
-        #     # 2. 输入随机数到RRAM程序
-        #     # 3. 运行RRAM程序
-        #     # 4. 输出程序运行信息
-        #     # 5. 将输出程序打印到窗口
-        #     d = np.random.randint(0, 2, (900 * 8 + 64 * 8 + 1 * 10) * 10)
-        #     self.plot_info(d)
-        #     random_data.append(d)
-        #     self.gauge.SetValue(i+1)
-        #     # rn = random()
-        #     # res = Control(self.Da_to_test, rn)
-        #     # self.log_text_ctrl.AppendText(f"The result is {res}. \n\n")
-        #     # self.log_text_ctrl.AppendText(f"The result is {wx.DateTime.Now().FormatTime()}. \n\n")
-        #     self.log_text_ctrl.AppendText(f"Random Number ID: {i}, Time {wx.DateTime.Now().FormatTime()}. \n\n")
-        # random_data = np.concatenate(random_data, axis=0)
 
         # load random_data
         true_random_data = np.load('tdc/random_data.npy', allow_pickle=True)
