@@ -5,6 +5,8 @@ import pickle
 import torch
 import numpy as np
 from rram_api import Control
+# Control() module is the key module of the computing-in-memory, which includes various operation
+# we cannot provide details, if you need please connect the  corresponding author
 from torch.nn import functional as F
 import time
 import matplotlib.pyplot as plt
@@ -52,13 +54,13 @@ class Process:
             self.p1 = torch.nn.MaxPool2d(2)
             self.p2 = torch.nn.MaxPool2d(2)
 
-            self.mu_row = [[range(1, 10)], [range(10, 50), range(0, 32)], [range(0, 64), range(0, 64)]]
-            self.mu_col = [[list(range(16, 26)) + list(range(27, 33))], [range(33, 49), range(62, 78)], [range(78, 98), range(98, 118)]]
+            self.mu_row = [[range(1, 28)], [range(30, 62), range(1, 57), range(1, 57)], [range(3, 59), range(3, 59), range(3, 35)]]
+            self.mu_col = [[range(1, 33)], [range(1, 33), range(36, 68), range(69, 101)], [range(102, 106), range(108, 112), range(114, 118)]]
 
-            self.var_row = [[range(0, 9)], [range(9, 49), range(0, 32)], [range(0, 64), range(0, 64)]]
-            self.var_col = [[range(0, 8)], [range(0, 8), range(16, 24)], [range(54, 64), range(26, 36)]]
+            self.var_row = [[range(2, 29)], [range(31, 63), range(2, 58), range(2, 58)], [range(2, 58), range(2, 58), range(2, 34)]]
+            self.var_col = [[range(2, 18)], [range(2, 18), range(25, 41), range(43, 59)], [range(62, 64), range(66, 68), range(69, 71)]]
 
-            self.com_row, self.com_col = range(64), range(36, 46)
+            self.com_row, self.com_col = range(64), range(72, 88)
         elif P_M = "MNIST":
             self.p1 = torch.nn.MaxPool2d(3)
             self.p2 = torch.nn.MaxPool2d(2)
@@ -174,16 +176,7 @@ class Process:
                     (x0, -1))
 
     def inverseTrans(self, out_RRAM, s_a, s_para, cal_mu=True):
-        """
-        This function is designed to transform the output from RRAM_array to numerical value and finish anti-quantization.
-        W = w_pos - w_neg
-        g_pos = 20μS * w_pos + 40μS
-        g_neg = 20μS * w_neg + 40μS
-        v_input = x * 0.1
-        v_input * (g_pos - g_neg) -> 4μA * x * w , this is implemented in RRAM array.
-        To transform the output of RRAM array to numerical value, the output of RRAM out_RRAM need to be processed:
-        y = y_RRAM / 2μA = x * w
-        """
+
         if cal_mu:
             idx = np.array([i for i in range(out_RRAM.shape[1])])
             even_idx = idx[idx % 2 == 0]
@@ -278,7 +271,7 @@ class Process:
                             if i % 2 == 1:
                                 pos_mat = control.read_matrix(_row, [original_col])
                                 neg_mat = _g_matrix[:, i: i + 1] - (original_g - pos_mat)
-                                neg_mat = np.clip(neg_mat, 40, 240)  # accelerate program
+                                neg_mat = np.clip(neg_mat, 40, 200)  # accelerate program
                                 # pos_mat = _g_matrix[:, i - 1: i]
                                 # neg_mat = _g_matrix[:, i: i + 1]
                                 control.matrix_write(_row, [c], neg_mat + bias_g, tolerant_value=2)
@@ -292,7 +285,7 @@ class Process:
                     elif 'sigma' in k:
                         com_mat = control.read_matrix(_row, list(self.com_col)[:len(_col)])
                         tg_mat = _g_matrix - (self.com_g - com_mat)
-                        tg_mat = np.clip(tg_mat, 40, 240)  # accelerate program
+                        tg_mat = np.clip(tg_mat, 40, 200)  # accelerate program
                         # tg_mat = _g_matrix
                         control.matrix_write(_row, _col, tg_mat + bias_g, tolerant_value=2)
 
@@ -310,22 +303,35 @@ class Process:
 
         if sim:
             if cal_mu:
+                control.choose_array(id=2)
                 x = pix * 0.1
                 if q:
                     x *= 0.14
-                w_rram = self.buffer[tuple(row), tuple(col)]
+                if 'debug' == sim: # just make sure the logic is right
+                    emu, estd = debug_mu.pop(0), debug_std.pop(0)
+                    w_rram = self.buffer[tuple(row), tuple(col)]
+                    w_rram += np.random.randn(*w_rram.shape) * estd + emu
+                else: # just make sure the weight order and input order are right
+                    w_rram = control.read_matrix(row, col)
                 out_mu_rram = x @ w_rram
                 out = self.inverseTrans(out_mu_rram, s_a, s_w, cal_mu=True)
                 if q:
                     out /= 0.14
                 return out, None
             else:
+                control.choose_array(id=3)
                 x = (pix ** 2) * 0.1
                 if q:
                     x *= 0.02
-                w_var_rram = self.buffer[tuple(row), tuple(col)]
-                w_var_rram_com = np.full(shape=(len(row), len(com_col)), fill_value=self.com_g)
-                out_var = x @ w_var_rram
+                if 'debug' == sim:
+                    w_var_rram = self.buffer[tuple(row), tuple(col)]
+                    w_var_rram_com = np.full(shape=(len(row), len(com_col)), fill_value=self.com_g)
+                    emu, estd = debug_mu.pop(0), debug_std.pop(0)
+                    w_var_rram += np.random.randn(*w_var_rram.shape) * estd + emu
+                else:
+                    w_var_rram = control.read_matrix(row, col)
+                    w_var_rram_com = control.read_matrix(row, com_col)
+
                 out_var_com = x @ w_var_rram_com
                 out_var = np.vstack((out_var, out_var_com))
 
@@ -378,7 +384,17 @@ class Process:
                 out = self.inverseTrans(out_var_rram, s_a, np.abs(s_w), cal_mu=False)
                 return out, params1, params2
 
-    def forward_MNIST(self, sim, inputs, num, control: Control = None, fit_params=None, ret_final=False):
+    def forward_MNIST(self, sim, inputs, num, random_data: list=None, control: Control = None, fit_params=None, ret_final=False):
+
+        length = (900 * 8 + 64 * 8 + 1 * 10) * 10 * num * len(inputs)
+
+        if random_data is None:
+            random_data = np.random.randint(0, 2, size=length)
+            print("does't use true random number")
+        else:
+            assert len(random_data) >= length
+
+        count = 0
 
         out_final = torch.zeros(inputs.shape[0], 10, num)
         out_final_1 = torch.zeros(inputs.shape[0], 10, num)
@@ -411,7 +427,10 @@ class Process:
             fit_params[1] = p1
             fit_params[2] = p2
 
-            eps = np.random.randint(0, 2, size=(out_var.shape[0], out_var.shape[1], 10)).sum(axis=2)
+            eps_shape = (out_var.shape[0], out_var.shape[1], 10)
+            _res = np.prod(eps_shape)
+            eps = np.reshape(random_data[count: count + _res], eps_shape).sum(axis=2)
+            count = count + _res
 
             out = out_mu + np.sqrt(np.abs(out_var)) * (eps - 5)
 
@@ -463,7 +482,10 @@ class Process:
             fit_params[8] = p2
             out_var += out_var1
 
-            eps = np.random.randint(0, 2, size=(out_var.shape[0], out_var.shape[1], 10)).sum(axis=2)
+            eps_shape = (out_var.shape[0], out_var.shape[1], 10)
+            _res = np.prod(eps_shape)
+            eps = np.reshape(random_data[count: count + _res], eps_shape).sum(axis=2)
+            count = count + _res
 
             out1 = out_mu + np.sqrt(np.abs(out_var)) * (eps - 5)
 
@@ -472,7 +494,6 @@ class Process:
 
             # print("pooling2")
             out1 = self.p2(torch.tensor(out1)).numpy()
-            _features.append(out1)
             mid = np.reshape(out1, (batchsize, -1))
 
             # fc1
@@ -512,7 +533,10 @@ class Process:
             fit_params[12] = p1
             fit_params[13] = p2
 
-            eps = np.random.randint(0, 2, size=(out_var.shape[0], out_var.shape[1], 10)).sum(axis=2)
+            eps_shape = (out_var.shape[0], out_var.shape[1], 10)
+            _res = np.prod(eps_shape)
+            eps = np.reshape(random_data[count: count + _res], eps_shape).sum(axis=2)
+            count = count + _res
 
             out2 = out_mu + np.sqrt(np.abs(out_var)) * (eps - 5)
 
@@ -521,11 +545,21 @@ class Process:
 
         return out_final_1, out_final
 
-    def forward_PCAM(self):
+    def forward_PCAM(self, sim, inputs, num, random_data: list=None, control: Control = None, fit_params=None, ret_final=False):
 
         batchsize = len(inputs)
         out_final = torch.zeros(inputs.shape[0], 2, num)
         out_final_1 = torch.zeros(inputs.shape[0], 2, num)
+
+        length = (256 * 16 + 36 * 16 + 1 * 2) * 10 * num * len(inputs)
+
+        if random_data is None:
+            random_data = np.random.randint(0, 2, size=length)
+            print("does't use true random number")
+        else:
+            assert len(random_data) >= length
+
+        count = 0
 
         x = []
         if not isinstance(fit_params, (list, tuple)):
@@ -536,7 +570,6 @@ class Process:
         for _ in range(inputs.shape[0]):
             x.append(self.splitimage(inputs[_, :, :, :], 3, bs=False))
         x = np.array(x).reshape(-1, 27)
-        _features = []
 
         for j in range(num):
             # conv1
@@ -557,9 +590,12 @@ class Process:
             fit_params[1] = p1
             fit_params[2] = p2
 
-            eps = np.random.randint(0, 2, size=(out_var.shape[0], out_var.shape[1], 10)).sum(axis=2)
+            eps_shape = (out_var.shape[0], out_var.shape[1], 10)
+            _res = np.prod(eps_shape)
+            eps = np.reshape(random_data[count: count + _res], eps_shape).sum(axis=2)
+            count = count + _res
+
             out = out_mu + np.sqrt(np.abs(out_var)) * (eps - 5)
-            print("conv1")
 
             out = np.where(out >= 0, out, 0).reshape((batchsize, 16, 16, 16))
             out = np.transpose(out, axes=(0, 3, 1, 2))
@@ -631,8 +667,11 @@ class Process:
             fit_params[10] = p1
             fit_params[11] = p2
 
-            eps = np.random.randint(0, 2, size=(out_var.shape[0], out_var.shape[1], 10)).sum(axis=2)
-            print("conv2")
+            eps_shape = (out_var.shape[0], out_var.shape[1], 10)
+            _res = np.prod(eps_shape)
+            eps = np.reshape(random_data[count: count + _res], eps_shape).sum(axis=2)
+            count = count + _res
+
             out1 = out_mu + np.sqrt(np.abs(out_var)) * (eps - 5)
 
             out1 = np.where(out1 >= 0, out1, 0).reshape((batchsize, 6, 6, 16))
@@ -640,7 +679,6 @@ class Process:
 
             # print("pooling2")
             out1 = self.p2(torch.tensor(out1)).numpy()
-            _features.append(out1)
             mid = np.reshape(out1, (batchsize, -1))
 
             # fc1
@@ -704,14 +742,19 @@ class Process:
             fit_params[18] = p1
             fit_params[16] = p2
 
-            eps = np.random.randint(0, 2, size=(out_var.shape[0], out_var.shape[1], 10)).sum(axis=2)
-            print("fc1")
+            eps_shape = (out_var.shape[0], out_var.shape[1], 10)
+            _res = np.prod(eps_shape)
+            eps = np.reshape(random_data[count: count + _res], eps_shape).sum(axis=2)
+            count = count + _res
+
             out2 = out_mu + np.sqrt(np.abs(out_var)) * (eps - 5)
 
             out_final_1[:, :, j] = F.log_softmax(torch.tensor(out2), dim=1).clone().detach().data
             out_final[:, :, j] = torch.tensor(out2).clone().detach().data
 
-    def forward(self, sim, inputs, num, target, control: Control = None, fit_params=None, ret_final=False):
+        return out_final_1, out_final
+
+    def forward(self, sim, inputs, num, target, random_data: list = None, control: Control = None, fit_params=None, ret_final=False):
 
         mu_row, mu_col, var_row, var_col = [], [], [], []
         for r in self.mu_row:
@@ -724,9 +767,9 @@ class Process:
             var_col.extend(c)
 
         if self.P_M = "MNIST":
-            out_final_1, out_final = forward_MNIST(sim, inputs, num, control: Control = None, fit_params=None, ret_final=False)
+            out_final_1, out_final = forward_MNIST(sim, inputs, num, random_data, control: Control = None, fit_params=None, ret_final=False)
         elif self.P_M = "PCAM":
-            out_final_1, out_final = forward_PCAM(sim, inputs, num, control: Control = None, fit_params=None, ret_final=False)
+            out_final_1, out_final = forward_PCAM(sim, inputs, num, random_data, control: Control = None, fit_params=None, ret_final=False)
         else:
             raise ValueError("ONLY SUPPORT PCAM OR MNIST dataset !!!")
 
@@ -749,7 +792,7 @@ class Process:
 
 
 if __name__ == '__main__':
-    # fit_params = np.load(r"D:\RRAM_16k\rram_api\test\matrix_w\jake_lu\fit_params.npy", allow_pickle=True)
+
     Process.binary = False
     P_M = "MNIST"
 
@@ -769,9 +812,12 @@ if __name__ == '__main__':
 
     # +++++++++++++++++++++++ original data ++++++++++++++++++++++
     import json
-    x = np.load(r"D:\RRAM_16k\rram_api\test\matrix_w\jake_lu\data.npy")[4200:4300]
-    print(x.shape)
-    y = np.load(r"D:\RRAM_16k\rram_api\test\matrix_w\jake_lu\label.npy")[4200:4300]
+
+    # random_data = np.loadtxt(r"tdc/random_data.csv", delimiter=",") # this is a huge file, loading this file will take a while
+    random_data = np.load(r"demo/zynq/tdc/tdc/random_data.npy", allow_pickle=True) # make sure the path saving true random numbers is right
+
+    x = np.load(r"data.npy")  # we saved the dataset one by one in .npy format, you can also combine with Dataloader, depend on you
+    y = np.load(r"label.npy")
 
     Inference = True
     load_fit_factors = False
@@ -788,12 +834,8 @@ if __name__ == '__main__':
         else:
             fit_factors = [None] * 14
 
-        with Control() as control:
+        with Control() as control:  
             for m in range(in_len):
-                # if m == in_len - 1:
-                #     x_inp = x[m * 128:, :, :]
-                #     y_inp = y[m:]
-                # else:
                 x_inp = x[bs * m:bs * (m + 1), :, :]
                 y_inp = y[bs * m:bs * (m + 1)]
 
@@ -843,7 +885,7 @@ if __name__ == '__main__':
     # features = []
     #
     # with Control() as control:
-    #     # 加载对抗样本数据集
+    #     # loading adversarial samples
     #     # att_type = ["noise", "gaussian", "fgsm", "pgd", "bim"]
     #     att_type = ["fgsm"]
     #     epsilon = [0.025]
@@ -872,39 +914,5 @@ if __name__ == '__main__':
     #             _accuracy = acc(outputs, targets)
     #             print('Accuracy:', round(_accuracy * 100, 2), '%')
     #             # np.save(f"adv_dataset/{att}/eps_{eps}_output_2.npy", np.array(out_final), allow_pickle=True)
-    #
-    #     # fs = os.listdir(directory)
-    #     # for i in range(len(fs) // 2):
-    #     #     if not any([k in fs[2 * i] for k in ['_0.05_', '_0.1_', '_0.15_', '_0.2_', '_0.25_', '_0.3_']]):
-    #     #     # if not any([k in fs[2 * i] for k in ['_0.05_', '_0.1_', '_0.15_', '_0.3_']]):
-    #     #         continue
-    #     #
-    #     #     index.append(float(fs[2 * i].split('_')[1]))
-    #     #
-    #     #     data_path = os.path.join(directory, fs[2 * i])
-    #     #     label_path = os.path.join(directory, fs[2 * i + 1])
-    #     #     print(data_path, label_path)
-    #     #     with open(data_path, 'r') as f:
-    #     #         data = np.array(json.load(f)).squeeze()
-    #     #     with open(label_path, 'r') as f:
-    #     #         label = np.array(json.load(f)).squeeze()
-    #     #
-    #     #     # data, label = x, y
-    #     #
-    #     #     out_file = fs[2 * i].replace('_data', '_out')
-    #     #     out_path = os.path.join(output_path, out_file)
-    #     #
-    #     #     data, label = data[start_index:start_index + input_num], label[start_index: start_index + input_num]
-    #     #     print(data.shape, label.shape)
-    #     #     dummy = np.arange(10).reshape((-1, 1))
-    #     #     count = np.sum(label == dummy, axis=1)
-    #     #     print(count)
-    #     #
-    #     #     print('start time', time.strftime('%m-%d-%H_%M_%S'))
-    #     #     _output, _target, fit_factors, accuracy = process.forward(False, data, avg_num, label, control=control, fit_params=fit_factors, ret_final=True)
-    #     #     print('end time', time.strftime('%m-%d-%H_%M_%S'))
-    #     #     acc_ls.append(accuracy)
-    #
-    #         # torch.save(_output, out_path)
     # # ======================================================
 
