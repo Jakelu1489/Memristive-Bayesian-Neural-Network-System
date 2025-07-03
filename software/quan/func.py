@@ -55,7 +55,7 @@ class QuanBayConv2d(BBBCov2d):
         self.W_sigma = torch.log1p(torch.exp(self.W_rho))
         if self.training or sample:
             if self.use_clt:
-                quantized_mu = self.quan_wu_fn(self.W_mu - self.W_sigma * self.clt_num_sqrt)
+                quantized_mu = self.quan_wu_fn(self.W_mu)- self.clt_num_sqrt * self.W_sigma
                 quantized_sigma = self.quan_sigma_fn(self.W_sigma * (2 / self.clt_num_sqrt))
                 if self.noise:
                     quantized_mu += self.mu_mapping(quantized_mu)
@@ -334,13 +334,11 @@ class QuanBayConv2dLRT(BBBCov2dLRT):
                         quantized_bias_var += self.var_mapping(quantized_bias_var)
                 act_mu = F.conv2d(quantized_act, quantized_mu, quantized_bias_mu, self.stride, self.padding,
                                   self.dilation, self.grops)
-                if self.noise:
-                    act_mu += act_mu * 0.15 * torch.normal(0, 1, size=act_mu.size()).to(self.device)
+
                 act_var = 1e-32 + F.conv2d(quantized_act ** 2, quantized_var, quantized_bias_var, self.stride,
                                            self.padding,
                                            self.dilation, self.grops)
-                if self.noise:
-                    act_var += act_var * 0.15 * torch.normal(0, 1, size=act_var.size()).to(self.device)
+
                 act_std = torch.sqrt(act_var)
                 eps = torch.zeros(act_mu.size()).to(self.device)
                 for i in range(self.clt_num):
@@ -349,8 +347,6 @@ class QuanBayConv2dLRT(BBBCov2dLRT):
             else:
                 quantized_mu = self.quan_wu_fn(self.W_mu)
                 quantized_var = self.quan_sigma_fn(self.W_sigma ** 2)
-                if self.noise:
-                    pass
                 quantized_act = self.quan_a_fn(inputs)
                 if self.use_bias:
                     self.bias_sigma = torch.log1p(torch.exp(self.bias_rho))
@@ -485,11 +481,9 @@ class QuanBayLinearLRT(BBBLinearLRT):
                         quantized_bias_mu += self.mu_mapping(quantized_bias_mu)
                         quantized_bias_var += self.var_mapping(quantized_bias_var)
                 act_mu = F.linear(quantized_act, quantized_mu, quantized_bias_mu)
-                if self.noise:
-                    act_mu += act_mu * 0.15 * torch.normal(0, 1, size=act_mu.size()).to(self.device)
+                
                 act_var = 1e-32 + F.linear(quantized_act ** 2, quantized_var, quantized_bias_var)
-                if self.noise:
-                    act_var += act_var * 0.15 * torch.normal(0, 1, size=act_var.size()).to(self.device)
+                
                 act_std = torch.sqrt(act_var)
                 eps = torch.zeros(act_mu.size()).to(self.device)
                 for i in range(self.clt_num):
